@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik-VariableFont_wght.woff2") format("woff2"),
+    url("./assets/fonts/Rubik-VariableFont_wght.woff") format("woff");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply font-sans;
+  background-color: black;
+  color: #e7e7e7;
+}
