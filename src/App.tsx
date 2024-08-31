@@ -21,9 +21,10 @@ export default function App() {
   });
 
   return (
-    <main>
-      <div className="flex gap-8 px-14 py-10">
-        <div className="w-[70%] items-start bg-black rounded-lg">
+    <main className="flex flex-col justify-center items-center gap-16 h-dvh px-14 py-10 border-2">
+      <h1 className="font-black text-zinc-900 text-6xl">MOVIE TIME 📺</h1>
+      <div className="w-full max-w-6xl flex gap-8">
+        <div className="basis-[70%] shrink-0 grow-0 overflow-hidden bg-black rounded-lg">
           <video
             controls
             autoPlay
@@ -39,7 +40,7 @@ export default function App() {
             />
           </video>
         </div>
-        <div className="w-[30%]">
+        <div className="basis-[30%] shrink-0 grow-0 overflow-hidden">
           <Tabs setPlayer={setCurrentPlay} />
         </div>
       </div>
@@ -121,8 +122,8 @@ function TabItem({
 }) {
   return (
     <button
-      className={`flex-1 px-6 text-white font-bold py-1.5 rounded-lg ${
-        tabs === tabName ? "bg-white text-slate-950" : null
+      className={`flex-1 px-6 font-bold py-1.5 rounded-lg ${
+        tabs === tabName ? "bg-white text-slate-950" : "text-white"
       }`}
       onClick={() => {
         setState(tabName);
@@ -190,7 +191,13 @@ function Lists({
             }));
           }}
         >
-          {data.type === "video/x-matroska" ? <MovieIcon /> : <SubtitleIcon />}
+          <div className="aspect-square w-6">
+            {data.type === "video/x-matroska" ? (
+              <MovieIcon />
+            ) : (
+              <SubtitleIcon />
+            )}
+          </div>
           <span className="line-clamp-1">{data.name}</span>
         </li>
       ))}
