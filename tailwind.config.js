@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         sans: ["Rubik", "Arial", "Helvetica", "sans-serif"],
       },
+      backgroundImage: {
+        "bg-pattern": "url('./assets/image/bg.webp')",
+      },
     },
   },
   plugins: [],
