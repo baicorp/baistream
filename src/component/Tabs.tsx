@@ -29,20 +29,11 @@ export default function Tabs() {
         <TabItem tabName="subtitles" tabs={tabs} setState={setTabs} />
       </div>
       <div>
-        {tabs === "videos" && (
-          <InputFile
-            label="Add video"
-            setState={setVideos}
-            acceptedFile={ACCEPTEDFILE.videos}
-          />
-        )}
-        {tabs === "subtitles" && (
-          <InputFile
-            label="Add subtitle"
-            setState={setSubtitles}
-            acceptedFile={ACCEPTEDFILE.subtitle}
-          />
-        )}
+        <InputFile
+          label={`Add ${tabs}`}
+          setState={tabs === "videos" ? setVideos : setSubtitles}
+          acceptedFile={ACCEPTEDFILE[tabs === "videos" ? "videos" : "subtitle"]}
+        />
       </div>
       <div className="grow lg:max-h-[255.34px] xl:max-h-[349.84px] overflow-x-hidden overflow-y-auto border-r-2 border-b-2 border-l-2 border-zinc-500 border-dashed rounded-lg">
         {listFiles !== null ? (
