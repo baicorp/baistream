@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Toaster } from "sonner";
 import App from "./App";
 import "./App.css";
 import VideoPlayerProvider from "./contexts/VideoPlayer";
@@ -11,6 +12,7 @@ if (rootEl) {
     <React.StrictMode>
       <VideoPlayerProvider>
         <App />
+        <Toaster />
       </VideoPlayerProvider>
     </React.StrictMode>
   );

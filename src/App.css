@@ -15,3 +15,8 @@ body {
   background-color: black;
   color: #e7e7e7;
 }
+
+.drop-zone-active {
+  @apply bg-neutral-400/40;
+  @apply animate-pulse;
+}
