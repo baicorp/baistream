@@ -61,7 +61,7 @@ export default function Tabs() {
           }
           tabs === "videos" ? setVideos(files) : setSubtitles(files);
         }}
-        className="grow lg:max-h-[255.34px] xl:max-h-[349.84px] overflow-x-hidden overflow-y-auto border-r-2 border-b-2 border-l-2 border-zinc-500 border-dashed rounded-lg"
+        className="grow overflow-x-hidden overflow-y-auto border-r-2 border-b-2 border-l-2 border-zinc-500 border-dashed rounded-lg"
       >
         {listFiles !== null ? (
           <Lists list={listFiles} />
