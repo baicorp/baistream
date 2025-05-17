@@ -1,19 +1,22 @@
-import VideoPlayer from "./component/VideoPlayer";
-import Tabs from "./component/Tabs";
+import { scan } from "react-scan"; // must be imported before React and React DOM
+scan({
+  enabled: true,
+});
+
+import VideoPlayer from "./component/videoPlayer/VideoPlayer";
+import Sidebar from "./component/SideBar";
+import Tabs from "./component/tabs/Tabs";
 
 export default function App() {
   return (
-    <main className="bg-bg-pattern flex justify-center items-center h-dvh px-14 py-10">
-      <div className="w-full max-w-6xl flex flex-col gap-8">
-        <h1 className="text-center font-bold text-8xl">MOVIE TIME 📺</h1>
-        <div className="flex justify-between gap-8">
-          <div className="basis-[70%] overflow-hidden bg-black rounded-lg">
-            <VideoPlayer />
-          </div>
-          <div className="basis-[30%] overflow-hidden">
-            <Tabs />
-          </div>
+    <main className="bg-base h-dvh p-2 relative">
+      <div className="flex h-full overflow-hidden">
+        <div className="bg-black grow rounded-xl relative overflow-hidden">
+          <VideoPlayer />
         </div>
+        <Sidebar>
+          <Tabs />
+        </Sidebar>
       </div>
     </main>
   );
