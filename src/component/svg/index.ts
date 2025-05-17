@@ -14,3 +14,4 @@ export { default as SkipPrev } from "./SkipPrev";
 export { default as SkipNext } from "./SkipNext";
 export { default as Subtitle } from "./Subtitle";
 export { default as Movie } from "./Movie";
+export { default as Add } from "./Add";
