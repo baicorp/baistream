@@ -11,12 +11,11 @@ export default function VideoPlayer() {
   const controlsRef = useRef<HTMLDivElement>(null);
 
   const handleContainerClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ) => {
     const video = videoRef.current;
-    if (!video) return;
     const controls = controlsRef.current;
-    if (!controls) return;
+    if (!video || !controls) return;
     // Check if the mouse event target is inside the controls element
     if (controls.contains(e.target as Node)) {
       // If it's inside the controls, do nothing and let the controls
@@ -32,9 +31,8 @@ export default function VideoPlayer() {
 
   useEffect(() => {
     const controls = controlsRef.current;
-    if (!controls) return;
     const container = containerRef.current;
-    if (!container) return;
+    if (!controls || !container) return;
 
     let timeOut: NodeJS.Timeout;
     const controlsAutoHideDelayMs = 3000;
@@ -76,7 +74,7 @@ export default function VideoPlayer() {
       controls.removeEventListener("mouseenter", handleControlsMouseEnter);
       controls.removeEventListener("mouseleave", handleControlsMouseLeave);
     };
-  }, []);
+  }, [controlsRef, containerRef]);
 
   return (
     <div
